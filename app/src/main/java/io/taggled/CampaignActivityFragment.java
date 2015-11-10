@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import io.taggled.models.Campaign;
+
 /**
  * A placeholder fragment containing a simple view.
  */

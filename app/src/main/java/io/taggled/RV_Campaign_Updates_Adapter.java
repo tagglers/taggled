@@ -1,7 +1,6 @@
 package io.taggled;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import io.taggled.models.Campaign;
 
 /**
  * Created by demouser on 11/9/15.

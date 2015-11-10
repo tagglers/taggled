@@ -2,6 +2,8 @@ package io.taggled;
 
 import java.util.Date;
 
+import io.taggled.models.UserCampaign;
+
 /**
  * Created by Cuong on 11/9/2015.
  */
