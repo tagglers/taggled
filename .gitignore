@@ -30,6 +30,9 @@ local.properties
 # GCM files
 google-services.json
 
+# Private strings (e.g., api key)
+strings-private.xml
+
 # OS-specific files
 .DS_Store
 .DS_Store?
