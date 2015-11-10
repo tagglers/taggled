@@ -21,4 +21,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_campaign">CampaignActivity</string>
+    <string name="title_activity_campaign_detail">CampaignDetailActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_campaign_d">CampaignDActivity</string>
 </resources>
