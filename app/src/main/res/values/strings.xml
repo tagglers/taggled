@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Taggle for Good</string>
     <string name="action_settings">Settings</string>
-    // remote key before posting
+    <!-- Payment Activity strings -->
     <string name="public_key">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5Czmv64otV+ZQIjkpKBjwXZzrxmWnUYTaX7x+Jia6PjsSBD9q9K5pYpzalijoHUrG+iGipMsuMP9GH08bsBzQKotdhBT6lrywaWUS4Jdzyvb/6vADA2QzczSC0jwH72tIZhMhTG+kIRu4RIUTxuks9gI8rciWAW4Q9F35mXql4eA+vlwFVQwuAezCLpdC5qx5Q9h/oJgU7+ccLzDgg9b1C/y6iKlfXEgdZZ/XcZLV3kow6rv2U4ZLCPKAmFeDRuc67zpGwxQASqoe/hJF0f43/hsUTCbqLxh5pFxYxFDUSefHvwbaONWbL3kQLGz2dqwDGmUqbOl90Y6hCWlkKHW7QIDAQAB</string>
+    <string name="reminder_1">A coffee in the morning is $3-5. Your donation blah blah...</string>
+    <string name="donate_button">DONATE!</string>
 </resources>

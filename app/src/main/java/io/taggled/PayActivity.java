@@ -1,5 +1,6 @@
 package io.taggled;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,13 @@ import io.taggled.util.Purchase;
 public class PayActivity extends AppCompatActivity {
 
     public static final String TAG = PayActivity.class.getSimpleName();
+    static final String ITEM_SKU = "android.test.purchased";
+
     IabHelper mHelper;
+
+    private Button clickButton;
+    private Button buyButton;
+
 
     @Bind(R.id.toolbar) Toolbar toolbar;
 
@@ -35,10 +43,15 @@ public class PayActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate running");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+
+        buyButton = (Button)findViewById(R.id.buyButton);
+        clickButton = (Button)findViewById(R.id.clickButton);
+        buyButton.setEnabled(false);
 
         String base64EncodedPublicKey = getResources().getString(R.string.public_key);
 
@@ -48,80 +61,90 @@ public class PayActivity extends AppCompatActivity {
         mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
             public void onIabSetupFinished(IabResult result) {
                 if (!result.isSuccess()) {
-                    // Oh noes, there was a problem.
-                    Log.d(TAG, "Problem setting up In-app Billing: " + result);
+                    Log.d(TAG, "In-app Billing setup failed: " +
+                            result);
                 } else {
-                    Log.d(TAG, "Setup working");
+                    Log.d(TAG, "In-app Billing is set up OK");
+                    //consumeItem();
                 }
             }
-        });
-        List additionalSkuList = new ArrayList();
-        additionalSkuList.add("testid");
-
-        try {
-            mHelper.queryInventoryAsync(mQueryFinishedListener);
-        } catch (IllegalStateException ioe) {
-            Log.d(TAG, "IllegalStateException, can't query");
-        }
-        mHelper.launchPurchaseFlow(this, "testid", 10001,
-                mPurchaseFinishedListener, "");
+           });
 
     }
     IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener
             = new IabHelper.OnIabPurchaseFinishedListener() {
-        public void onIabPurchaseFinished(IabResult result, Purchase purchase)
+        public void onIabPurchaseFinished(IabResult result,
+                                          Purchase purchase)
         {
+            Log.d(TAG, "onIabPurchaseFinishedListener running..");
             if (result.isFailure()) {
-                Log.d(TAG, "Error purchasing: " + result);
+                // Handle error
                 return;
             }
-            else if (purchase.getSku().equals("testid")) {
-                // consume the gas and update the UI
-                Log.d(TAG, "testid Taggle for good id recognized");
+            else if (purchase.getSku().equals(ITEM_SKU)) {
+                Log.d(TAG, "Purchase SKU match");
+                consumeItem();
+                buyButton.setEnabled(false);
             }
+
         }
     };
-    // Listener that's called when we finish querying the items we own
-    IabHelper.QueryInventoryFinishedListener mQueryFinishedListener = new IabHelper.QueryInventoryFinishedListener() {
+    public void consumeItem() {
+        Log.d(TAG, "consumeItem running");
+        mHelper.queryInventoryAsync(mReceivedInventoryListener);
+    }
+
+    IabHelper.QueryInventoryFinishedListener mReceivedInventoryListener
+            = new IabHelper.QueryInventoryFinishedListener() {
         public void onQueryInventoryFinished(IabResult result,
                                              Inventory inventory) {
-            Log.d(TAG, "Queried the inventory finished");
-            if (!result.isFailure()) {
-                if (inventory.hasPurchase("testid")){
-                    //we are premium, do things
-                    Log.d(TAG, "Already has purchase");
-                }
-            }
-            else{
-                //oops
+
+            Log.d(TAG, "onQueryInventoryFinished listener");
+            if (result.isFailure()) {
+                // Handle failure
+            } else {
+                Log.d(TAG, "consumeAsync about to run");
+                mHelper.consumeAsync(inventory.getPurchase(ITEM_SKU),
+                        mConsumeFinishedListener);
             }
         }
     };
+    IabHelper.OnConsumeFinishedListener mConsumeFinishedListener =
+            new IabHelper.OnConsumeFinishedListener() {
+                public void onConsumeFinished(Purchase purchase,
+                                              IabResult result) {
+
+                    if (result.isSuccess()) {
+                        clickButton.setEnabled(true);
+                    } else {
+                        // handle error
+                    }
+                }
+            };
+    public void buttonClicked (View view)
+    {
+        Log.d(TAG, "ButtonClicked");
+        //clickButton.setEnabled(false);
+        buyButton.setEnabled(true);
+    }
+    public void buyClick(View view) {
+        mHelper.launchPurchaseFlow(this, ITEM_SKU, 10001,
+                mPurchaseFinishedListener, "mypurchasetoken");
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data)
+    {
+        Log.d(TAG, "onActivityResult running");
+        if (!mHelper.handleActivityResult(requestCode,
+                resultCode, data)) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
         if (mHelper != null) mHelper.dispose();
         mHelper = null;
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_splash, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 }

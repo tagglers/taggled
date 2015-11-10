@@ -2,74 +2,109 @@
 <items version="2" >
 
     <item
-        jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
+        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.15/f0ab8b7c8010cad33b8debda5d09d233571dc486/rxjava-1.0.15.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/classes-885e9c448c6ddd370a2b0eaa49360567634c742f.jar" />
+        sha1="f0ab8b7c8010cad33b8debda5d09d233571dc486">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/rxjava-1.0.15-68e21342441ef2311e31f01e87767ae0fdf0ba92.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.braintreepayments.api/braintree/1.7.5/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8a29acf8ab9a3b9da2f31a136a71500b3d935e4f">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/classes-80a386c650407469d2c5b017881afe14e6b66d63.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/com.braintreepayments.api/data/1.7.5/638075f595bdca997f583c52a17425cfd3ebf8df/data-1.7.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="638075f595bdca997f583c52a17425cfd3ebf8df">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/data-1.7.5-c4cc4d33562c5e3b26c875ad3e38ecead7e6fb74.jar" />
     </item>
     <item
         jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/classes-0d1dade03e5b34d7307c4606a1a2d141648f72d9.jar" />
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/classes-0d1dade03e5b34d7307c4606a1a2d141648f72d9.jar" />
     </item>
     <item
-        jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/classes-9e94a46fb731dd0f8b3a2bd5bbec2c9afee09dec.jar" />
-    </item>
-    <item
-        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/butterknife-7.0.1-2269df15c00e0785ac4c45de7b39d7b5b8fb5077.jar" />
-    </item>
-    <item
-        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/picasso-2.5.2-9cf8984fa9b201bea574072fd98c039c8cd7f865.jar" />
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/classes-885e9c448c6ddd370a2b0eaa49360567634c742f.jar" />
     </item>
     <item
         jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/internal_impl-23.1.0-efd1a9beadbb3474930cefc85cc88736b4d12ad1.jar" />
-    </item>
-    <item
-        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.0.15/f0ab8b7c8010cad33b8debda5d09d233571dc486/rxjava-1.0.15.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="f0ab8b7c8010cad33b8debda5d09d233571dc486">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/rxjava-1.0.15-68e21342441ef2311e31f01e87767ae0fdf0ba92.jar" />
-    </item>
-    <item
-        jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/classes-a7785b30b076299364193eedaad992449b382b37.jar" />
-    </item>
-    <item
-        jar="/Users/duverneay/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/support-annotations-23.1.0-04cbbdea63f90514864f068574b37aca1e589c98.jar" />
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-efd1a9beadbb3474930cefc85cc88736b4d12ad1.jar" />
     </item>
     <item
         jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/io.reactivex/rxandroid/1.0.1/jars/classes.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="aa81bfe8c5cc88c2472ca936ae71f0c3dd1766df">
-        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/release/classes-4c26f840565ca40f5f638f2db1a980114728dac5.jar" />
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/classes-4c26f840565ca40f5f638f2db1a980114728dac5.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/com.braintreepayments.api/braintree-api/1.7.5/6db63f9ebbeb0bd5a24a17c903bbb9c4529ab899/braintree-api-1.7.5.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6db63f9ebbeb0bd5a24a17c903bbb9c4529ab899">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/braintree-api-1.7.5-29abeb121a73102c340f0aab3c426d5aefadc12d.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/classes-a7785b30b076299364193eedaad992449b382b37.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0-04cbbdea63f90514864f068574b37aca1e589c98.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3.1/ecb6e1f8e4b0e84c4b886c2f14a1500caf309757/gson-2.3.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/gson-2.3.1-c8bd1e0ea541f35e44ff9e0983cb52df05a507b5.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/classes-9e94a46fb731dd0f8b3a2bd5bbec2c9afee09dec.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/exploded-aar/com.braintreepayments/card-form/2.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e3c355553b4bd7c3a22bc21f483b91a746f2685b">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/classes-9bd8233ac041336f83f07fc2d8aaba7b26116d3d.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-9cf8984fa9b201bea574072fd98c039c8cd7f865.jar" />
+    </item>
+    <item
+        jar="/Users/duverneay/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/d5d13ea991eab0252e3710e5df3d6a9d4b21d461/butterknife-7.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d5d13ea991eab0252e3710e5df3d6a9d4b21d461">
+        <dex dex="/Users/duverneay/AndroidStudioProjects/Nanodegree/Hackathon/taggled/app/build/intermediates/pre-dexed/debug/butterknife-7.0.1-2269df15c00e0785ac4c45de7b39d7b5b8fb5077.jar" />
     </item>
 
 </items>
