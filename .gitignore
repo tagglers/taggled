@@ -1,5 +1,4 @@
 # Built application files
-/*/build/
 build/
 
 # Crashlytics configuations
@@ -27,6 +26,12 @@ local.properties
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 *.iml
+
+# GCM files
+google-services.json
+
+# Private strings (e.g., api key)
+strings-private.xml
 
 # OS-specific files
 .DS_Store
