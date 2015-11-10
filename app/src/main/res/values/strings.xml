@@ -7,4 +7,18 @@
     <string name="public_key">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5Czmv64otV+ZQIjkpKBjwXZzrxmWnUYTaX7x+Jia6PjsSBD9q9K5pYpzalijoHUrG+iGipMsuMP9GH08bsBzQKotdhBT6lrywaWUS4Jdzyvb/6vADA2QzczSC0jwH72tIZhMhTG+kIRu4RIUTxuks9gI8rciWAW4Q9F35mXql4eA+vlwFVQwuAezCLpdC5qx5Q9h/oJgU7+ccLzDgg9b1C/y6iKlfXEgdZZ/XcZLV3kow6rv2U4ZLCPKAmFeDRuc67zpGwxQASqoe/hJF0f43/hsUTCbqLxh5pFxYxFDUSefHvwbaONWbL3kQLGz2dqwDGmUqbOl90Y6hCWlkKHW7QIDAQAB</string>
     <string name="reminder_1">A coffee in the morning is $3-5. Your donation blah blah...</string>
     <string name="donate_button">DONATE!</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
 </resources>

@@ -9,11 +9,14 @@
     <uses-permission android:name="io.taggled.permission.C2D_MESSAGE"/>
     <uses-permission android:name="android.permission.NFC"/>
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <uses-feature
         android:name="android.hardware.nfc"
         android:required="true"/>
-
-    <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PayActivity"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
@@ -31,11 +34,6 @@
             android:label="@string/title_activity_nfc"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -43,37 +41,15 @@
                 <data android:mimeType="@string/mime_type"/>
             </intent-filter>
         </activity>
-
-        <receiver
-            android:name="com.google.android.gms.gcm.GcmReceiver"
-            android:exported="true"
-            android:permission="com.google.android.c2dm.permission.SEND">
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme" >
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION"/>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-
-                <category android:name="io.taggled"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </receiver>
-
-        <service
-            android:name=".gcm.MyGcmListenerService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
-            </intent-filter>
-        </service>
-        <service
-            android:name=".gcm.MyInstanceIDListenerService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID"/>
-            </intent-filter>
-        </service>
-        <service
-            android:name=".gcm.RegistrationIntentService"
-            android:exported="false">
-        </service>
+        </activity>
     </application>
 
 </manifest>
