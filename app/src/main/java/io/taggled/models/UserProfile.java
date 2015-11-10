@@ -1,6 +1,9 @@
-package io.taggled;
+package io.taggled.models;
 
 import java.util.List;
+
+import io.taggled.DonationActivity;
+import io.taggled.TaggleActivity;
 
 /**
  * Created by Cuong on 11/9/2015.

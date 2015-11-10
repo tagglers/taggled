@@ -1,4 +1,4 @@
-package io.taggled;
+package io.taggled.models;
 
 import java.util.Date;
 
