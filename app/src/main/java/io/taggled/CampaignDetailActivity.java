@@ -21,6 +21,8 @@ public class CampaignDetailActivity extends AppCompatActivity {
 
     private ViewPager mViewPager;
 
+    public static final String EXTRA_START_TAGGLE = "start_taggle";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +50,7 @@ public class CampaignDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 
