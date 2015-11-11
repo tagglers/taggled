@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
-        new EndPointsAsyncTask().execute("1");
+        //for testing only: new EndPointsAsyncTask().execute("1");
 
     }
 
