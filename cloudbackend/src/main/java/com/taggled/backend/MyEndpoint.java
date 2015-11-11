@@ -19,7 +19,6 @@ import com.taggled.backend.bean.User;
 import com.taggled.backend.bean.UserCampaign;
 import com.taggled.backend.bean.UserProfile;
 
-import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -47,7 +46,7 @@ import javax.xml.transform.Result;
 public class MyEndpoint {
 
 
-    public static final BigDecimal DONATION_AMOUNT = new BigDecimal("0.99");
+    public static final Double DONATION_AMOUNT = new Double("0.99");
 
     @ApiMethod(name = "createProfile")
     public UserProfile createProfile(User user){
@@ -148,7 +147,7 @@ public class MyEndpoint {
         if (taggledUserCampaign.getId() > 0) {
             taggledUserCampId = taggledUserCampaign.getId();
             updateDBUserCampaign(campaignId, taggledUser.getId(), taggledUserLevel, true
-                    , taggledUserCampaign.getTotalDonation().add(DONATION_AMOUNT));
+                    , taggledUserCampaign.getTotalDonation().doubleValue()+ DONATION_AMOUNT);
         }else{
             taggledUserCampId = createDBUserCampaign(campaignId, taggledUser.getId(), taggledUserLevel);
         }
@@ -199,9 +198,9 @@ public class MyEndpoint {
                 campaign.setImgUrl(rs.getString(4));
                 campaign.setStartDate(rs.getDate(5));
                 campaign.setEndDate(rs.getDate(6));
-                campaign.setTargetAmount(rs.getBigDecimal(7));
+                campaign.setTargetAmount(rs.getDouble(7));
                 campaign.setCreatedDate(rs.getDate(8));
-                campaign.setCurrentAmount(rs.getBigDecimal(9));
+                campaign.setCurrentAmount(rs.getDouble(9));
             }
 
             select = "SELECT * from campaignupdate WHERE campaignid = ?";
@@ -395,7 +394,7 @@ public class MyEndpoint {
     }
 
 
-    private void insertDBDonationActivity(int userCampId, BigDecimal donationAmount){
+    private void insertDBDonationActivity(int userCampId, Double donationAmount){
 
         Connection conn = null;
 
@@ -409,7 +408,7 @@ public class MyEndpoint {
             PreparedStatement stmt = conn.prepareStatement(statement);
 
             stmt.setInt(1, userCampId);
-            stmt.setBigDecimal(2, donationAmount);
+            stmt.setDouble(2, donationAmount);
 
             int success = stmt.executeUpdate();
 
@@ -492,7 +491,7 @@ public class MyEndpoint {
             stmt.setInt(3, toplevel);
             stmt.setInt(4, toplevel);//same as top when created new
             stmt.setString(5, "Y");
-            stmt.setBigDecimal(6, DONATION_AMOUNT);
+            stmt.setDouble(6, DONATION_AMOUNT);
 
             stmt.executeUpdate();
 
@@ -518,7 +517,7 @@ public class MyEndpoint {
 
     }
 
-    private int updateDBUserCampaign(int campaignId, int userId, int currentlevel, boolean canTaggle, BigDecimal donationAmount){
+    private int updateDBUserCampaign(int campaignId, int userId, int currentlevel, boolean canTaggle, Double donationAmount){
 
         Connection conn = null;
         int success = 0;
@@ -538,7 +537,7 @@ public class MyEndpoint {
 
             stmt.setInt(1, currentlevel);
             stmt.setString(2, canTaggle ? "Y" : "N");
-            stmt.setBigDecimal(3, donationAmount);
+            stmt.setDouble(3, donationAmount);
             stmt.setInt(4, userId);
             stmt.setInt(5, campaignId);
 
@@ -591,7 +590,6 @@ public class MyEndpoint {
                 i.setInvitedByEmail(rs.getString(5));
                 i.setCreatedDate(rs.getDate(6));
 
-                System.out.println("invi1");
                 invitations.add(i);
             }
 
@@ -731,7 +729,7 @@ public class MyEndpoint {
                 DonationActivity donation = new DonationActivity();
                 donation.setId(rs.getInt(1));
                 donation.setUserCampaignId(rs.getInt(2));
-                donation.setDonationAmount(rs.getBigDecimal(3));
+                donation.setDonationAmount(rs.getDouble(3));
                 donation.setCreatedDate(rs.getDate(4));
 
                 donations.add(donation);
@@ -798,8 +796,8 @@ public class MyEndpoint {
                 campaign.setImgUrl(rs.getString(4));
                 campaign.setStartDate(rs.getDate(5));
                 campaign.setEndDate(rs.getDate(6));
-                campaign.setTargetAmount(rs.getBigDecimal(7));
-                campaign.setCurrentAmount(rs.getBigDecimal(8));
+                campaign.setTargetAmount(rs.getDouble(7));
+                campaign.setCurrentAmount(rs.getDouble(8));
 
                 UserCampaign userCampaign = new UserCampaign();
 
@@ -811,7 +809,7 @@ public class MyEndpoint {
 
                 userCampaign.setCurrentLevel(rs.getInt(10));
 
-                userCampaign.setTotalDonation(rs.getBigDecimal(11));
+                userCampaign.setTotalDonation(rs.getDouble(11));
 
                 String canTaggle = rs.getString(12);
 
@@ -867,7 +865,7 @@ public class MyEndpoint {
                 campaign.setId(rs.getInt(1));
                 campaign.setTopLevel(rs.getInt(4));
                 campaign.setCurrentLevel(rs.getInt(5));
-                campaign.setTotalDonation(rs.getBigDecimal(6));
+                campaign.setTotalDonation(rs.getDouble(6));
                 campaign.setCanTaggle("Y".equals(rs.getString(7)));
 
             }
