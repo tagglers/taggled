@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class CampaignDetailActivity extends AppCompatActivity {
 
@@ -31,9 +32,16 @@ public class CampaignDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
+        boolean readyToTaggle = getIntent().getBooleanExtra(EXTRA_START_TAGGLE, false);
+        Bundle fragmentArgs = new Bundle();
+
+        fragmentArgs.putBoolean(CampaignDetailActivity.EXTRA_START_TAGGLE, readyToTaggle);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager(), fragmentArgs);
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager)findViewById(R.id.container_pager);
@@ -50,7 +58,6 @@ public class CampaignDetailActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
 
     }
 
@@ -84,17 +91,21 @@ public class CampaignDetailActivity extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        Bundle data;
+
+        public SectionsPagerAdapter(FragmentManager fm, Bundle bundle) {
             super(fm);
+            data = bundle;
         }
 
         @Override
         public Fragment getItem(int position) {
             switch (position)
             {
-                case 0: return CampaignDetailActivityFragment.newInstance("test");
+                case 0:
+                    return CampaignDetailActivityFragment.newInstance("test", data);
                 case 1: return CampaignDetailUpdateActivityFragment.newInstance("test2");
-                default:return CampaignDetailActivityFragment.newInstance("test");
+                default:return CampaignDetailActivityFragment.newInstance("test", data);
             }
         }
 
