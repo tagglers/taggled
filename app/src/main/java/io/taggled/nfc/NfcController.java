@@ -8,16 +8,25 @@ import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcEvent;
 import android.os.Parcelable;
+import android.support.design.widget.Snackbar;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.taggled.backend.myApi.model.UserProfile;
+
+import java.io.IOException;
 
 import io.taggled.R;
+import io.taggled.rx.Observables;
+import io.taggled.tasks.Tasks;
+import rx.functions.Action1;
 
 /**
  * Include the following code as an intent filter for the calling Activity:
  * <intent-filter>
- *      <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
- *      <category android:name="android.intent.category.DEFAULT"/>
- *      <data android:mimeType="@string/mime_type"/>
+ * <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
+ * <category android:name="android.intent.category.DEFAULT"/>
+ * <data android:mimeType="@string/mime_type"/>
  * </intent-filter>
  */
 public class NfcController implements NfcAdapter.CreateNdefMessageCallback {
@@ -43,6 +52,7 @@ public class NfcController implements NfcAdapter.CreateNdefMessageCallback {
 
     /**
      * Call onResume in onResume() callback of calling Activity
+     *
      * @param intent getIntent() from the calling Activity
      */
     public void onResume(Intent intent) {
@@ -68,14 +78,34 @@ public class NfcController implements NfcAdapter.CreateNdefMessageCallback {
 
     @Override
     public NdefMessage createNdefMessage(NfcEvent event) {
+        
+        String email = getUserEmail(9);
+        Toast.makeText(mActivity, "userId: ", Toast.LENGTH_SHORT).show();
+
+        Log.i(TAG, "user email: " + email);
+
         return new NdefMessage(new NdefRecord[]{
-                NdefRecord.createMime(mActivity.getString(R.string.mime_type), getUserId().getBytes()),
+                NdefRecord.createMime(mActivity.getString(R.string.mime_type), email.getBytes()),
                 NdefRecord.createApplicationRecord("io.taggled")});
     }
 
-    private String getUserId() {
-        // TODO: get unique user id from the backend
-        return "12345";
+//    private String getUserId(int userId) {
+//        final String[] email = {""};
+//        try {
+//            Observables.getUserProfile(userId).subscribe(new Action1<UserProfile>() {
+//                @Override
+//                public void call(UserProfile userProfile) {
+//                    email[0] = userProfile.getUser().getEmail();
+//                }
+//            });
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return email[0];
+//    }
+
+    private String getUserEmail(int userId) {
+        return Tasks.getUserTasks(userId);
     }
 
 
