@@ -21,6 +21,7 @@ public class CampaignDetailActivityFragment extends Fragment {
 
     @Bind(R.id.tv_campaign_taggle_amount1) TextView taggleAmount;
     @Bind(R.id.tv_campaign_taggle_nos) TextView taggleCount;
+    @Bind(R.id.tv_campaign_taggle_count) TextView taggleRemaining;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +36,7 @@ public class CampaignDetailActivityFragment extends Fragment {
                 getArguments().getBoolean(CampaignDetailActivity.EXTRA_START_TAGGLE)) {
             taggleAmount.setText("$ 0.99");
             taggleCount.setText("1");
+            taggleRemaining.setVisibility(View.VISIBLE);
         }
 
         return v;
