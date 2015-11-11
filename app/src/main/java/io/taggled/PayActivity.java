@@ -128,8 +128,10 @@ public class PayActivity extends AppCompatActivity {
 
                     if (result.isSuccess()) {
                         //clickButton.setEnabled(true);
-                        Intent intent = new Intent(mContext, TaggleFriendsActivity.class);
-                        //startActivity(intent);
+                        Intent intent = new Intent(mContext, CampaignDetailActivity.class);
+                        intent.putExtra(CampaignDetailActivity.EXTRA_START_TAGGLE, true);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
                     } else {
                         // handle error
                     }

@@ -35,6 +35,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.taggled.CampaignActivity;
 import io.taggled.PayActivity;
 import io.taggled.R;
 import io.taggled.util.PreferenceUtils;
@@ -371,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements
             }
             if (name != null) {
                 mLoggedInStatusTextView.setText("Logged in as " + name + " (" + authData.getProvider() + ")");
-                Intent intent = new Intent(this, PayActivity.class);
+                Intent intent = new Intent(this, CampaignActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 PreferenceUtils.setUserEmail(this, email);
                 PreferenceUtils.setUserName(this, name);

@@ -1,68 +1,58 @@
 package io.taggled;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import io.taggled.models.Campaign;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 /**
  * A placeholder fragment containing a simple view.
  */
 public class CampaignDetailActivityFragment extends Fragment {
 
+
     public CampaignDetailActivityFragment() {
     }
 
-
-    private List<Campaign> campaigns;
-    private RecyclerView rv_campaigns_updates;
+    @Bind(R.id.tv_campaign_taggle_amount1) TextView taggleAmount;
+    @Bind(R.id.tv_campaign_taggle_nos) TextView taggleCount;
+    @Bind(R.id.tv_campaign_taggle_count) TextView taggleRemaining;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View v =inflater.inflate(R.layout.fragment_campaign_detail, container, false);
-        rv_campaigns_updates=(RecyclerView)v.findViewById(R.id.rv_campaigns_updates);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        rv_campaigns_updates.setLayoutManager(linearLayoutManager);
-        rv_campaigns_updates.setHasFixedSize(true);
+        ButterKnife.bind(this, v);
 
-        initializeData();
-        initializeAdapter();
+        if (getArguments() != null &&
+                getArguments().containsKey(CampaignDetailActivity.EXTRA_START_TAGGLE) &&
+                getArguments().getBoolean(CampaignDetailActivity.EXTRA_START_TAGGLE)) {
+            taggleAmount.setText("$ 0.99");
+            taggleCount.setText("1");
+            taggleRemaining.setVisibility(View.VISIBLE);
+        }
 
         return v;
     }
+    public static CampaignDetailActivityFragment newInstance(String text, Bundle data) {
 
+        CampaignDetailActivityFragment f = new CampaignDetailActivityFragment();
+//        Bundle b = new Bundle();
+//        b.putString("msg", text);
+//
+        f.setArguments(data);
 
-
-
-    private void initializeData(){
-        campaigns = new ArrayList<Campaign>();
-
-        Campaign campaign = new Campaign();
-
-        campaign.setEndDate(new Date());
-        campaign.setName("Drinking Water for Africa");
-        campaign.setTargetAmount(40000);
-        campaigns.add(campaign);
-        campaigns.add(campaign);
-        campaigns.add(campaign);
-        campaigns.add(campaign);
+        return f;
     }
 
-    private void initializeAdapter(){
-        RV_Campaign_Updates_Adapter adapter = new RV_Campaign_Updates_Adapter(campaigns);
-        rv_campaigns_updates.setAdapter(adapter);
-    }
+
+
 }
 

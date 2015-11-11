@@ -88,9 +88,9 @@ public class RV_Campaign_Adapter extends RecyclerView.Adapter<RV_Campaign_Adapte
 
     @Override
     public void onBindViewHolder(CampaignViewHolder campaignViewHolder, int i) {
-        campaignViewHolder.tv_campaign_name.setText("test");
-        campaignViewHolder.tv_campaign_amount.setText("40000");
-        campaignViewHolder.tv_campaign_end_date.setText("12-12-2015");
+        campaignViewHolder.tv_campaign_name.setText("Drinking Water in Africa");
+        campaignViewHolder.tv_campaign_amount.setText("Target Amount : $40000");
+        campaignViewHolder.tv_campaign_end_date.setText("Last Date : 12th November 2015");
         campaignViewHolder.tv_taggle_amount.setText("$54");
         campaignViewHolder.tv_taggle_nos.setText("18");
     }
