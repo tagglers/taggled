@@ -9,6 +9,7 @@
     <string name="donate_button">DONATE!</string>
     <string name="title_activity_login">Sign in</string>
     <string name="can_taggle">You can Taggle 3 People!</string>
+    <string name="can_taggle_param">You can Taggle %1$s People!</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>

@@ -1,5 +1,6 @@
 package io.taggled;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -37,6 +38,12 @@ public class CampaignDetailActivityFragment extends Fragment {
             taggleAmount.setText("$ 0.99");
             taggleCount.setText("1");
             taggleRemaining.setVisibility(View.VISIBLE);
+            taggleRemaining.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    updateTaggleCount(v);
+                }
+            });
         }
 
         return v;
@@ -52,6 +59,28 @@ public class CampaignDetailActivityFragment extends Fragment {
         return f;
     }
 
+    public void updateTaggleCount(View view){
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    // Simulate network access.
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    return null;
+                }
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                taggleAmount.setText("$ 1.98");
+                taggleCount.setText("2");
+                taggleRemaining.setText(String.format(getString(R.string.can_taggle_param), 2));
+            }
+        }.execute();
+    }
 
 
 }
