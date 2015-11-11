@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import io.taggled.nfc.NfcController;
+
 public class CampaignDetailActivity extends AppCompatActivity {
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -23,6 +25,10 @@ public class CampaignDetailActivity extends AppCompatActivity {
     private ViewPager mViewPager;
 
     public static final String EXTRA_START_TAGGLE = "start_taggle";
+
+    private NfcController mController;
+
+    private boolean readyToTaggle = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +38,9 @@ public class CampaignDetailActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mController = new NfcController(this);
 
-
-        boolean readyToTaggle = getIntent().getBooleanExtra(EXTRA_START_TAGGLE, false);
+        readyToTaggle = getIntent().getBooleanExtra(EXTRA_START_TAGGLE, false);
         Bundle fragmentArgs = new Bundle();
 
         fragmentArgs.putBoolean(CampaignDetailActivity.EXTRA_START_TAGGLE, readyToTaggle);
@@ -54,8 +60,12 @@ public class CampaignDetailActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                Intent intent = new Intent(CampaignDetailActivity.this, PayActivity.class);
-                startActivity(intent);
+                if (readyToTaggle){
+                    mController.invokeBeam();
+                } else {
+                    Intent intent = new Intent(CampaignDetailActivity.this, PayActivity.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -127,4 +137,9 @@ public class CampaignDetailActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mController.onResume(getIntent());
+    }
 }

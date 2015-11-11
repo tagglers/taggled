@@ -78,5 +78,9 @@ public class NfcController implements NfcAdapter.CreateNdefMessageCallback {
         return "12345";
     }
 
+    public void invokeBeam() {
+        mNfcAdapter.invokeBeam(mActivity);
+    }
+
 
 }

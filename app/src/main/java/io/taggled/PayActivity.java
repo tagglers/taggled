@@ -90,6 +90,7 @@ public class PayActivity extends AppCompatActivity {
             Log.d(TAG, "onIabPurchaseFinishedListener running..");
             if (result.isFailure()) {
                 // Handle error
+                consumeItem();
                 return;
             }
             else if (purchase.getSku().equals(ITEM_SKU)) {
