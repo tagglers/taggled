@@ -14,7 +14,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SplashActivity extends AppCompatActivity {
+public class TaggleFriendsActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar) Toolbar toolbar;
 
@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_taggle_friends);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
@@ -35,7 +35,7 @@ public class SplashActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(SplashActivity.this,CampaignActivity.class);
+                Intent myIntent = new Intent(TaggleFriendsActivity.this,CampaignActivity.class);
                 startActivity(myIntent);
             }
         });
