@@ -1,6 +1,5 @@
 package com.taggled.backend.bean;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +13,7 @@ public class UserCampaign {
     private Campaign campaign;
     private Integer topLevel;
     private Integer currentLevel;
-    private BigDecimal totalDonation;
+    private Double totalDonation;
     private boolean canTaggle;
     private Date createdDate;
     private List<DonationActivity> donationActivities;
@@ -68,11 +67,11 @@ public class UserCampaign {
         this.currentLevel = currentLevel;
     }
 
-    public BigDecimal getTotalDonation() {
+    public Double getTotalDonation() {
         return totalDonation;
     }
 
-    public void setTotalDonation(BigDecimal totalDonation) {
+    public void setTotalDonation(Double totalDonation) {
         this.totalDonation = totalDonation;
     }
 

@@ -1,6 +1,5 @@
 package com.taggled.backend.bean;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -11,7 +10,7 @@ public class DonationActivity {
 
     private Integer id;
     private Integer userCampaignId;
-    private BigDecimal donationAmount;
+    private Double donationAmount;
     private Date createdDate;
 
     public Integer getId() {
@@ -30,11 +29,11 @@ public class DonationActivity {
         this.userCampaignId = userCampaignId;
     }
 
-    public BigDecimal getDonationAmount() {
+    public Double getDonationAmount() {
         return donationAmount;
     }
 
-    public void setDonationAmount(BigDecimal donationAmount) {
+    public void setDonationAmount(Double donationAmount) {
         this.donationAmount = donationAmount;
     }
 
