@@ -17,6 +17,7 @@ import com.taggled.backend.myApi.model.UserProfile;
 import java.io.IOException;
 
 import io.taggled.R;
+import io.taggled.gcm.InfoTask;
 import io.taggled.rx.Observables;
 import io.taggled.tasks.Tasks;
 import rx.functions.Action1;
@@ -29,7 +30,8 @@ import rx.functions.Action1;
  * <data android:mimeType="@string/mime_type"/>
  * </intent-filter>
  */
-public class NfcController implements NfcAdapter.CreateNdefMessageCallback {
+public class NfcController implements NfcAdapter.CreateNdefMessageCallback,
+        InfoTask.TagglerTaskListener {
 
     private static final String TAG = "NfcController";
 
@@ -80,6 +82,10 @@ public class NfcController implements NfcAdapter.CreateNdefMessageCallback {
     public NdefMessage createNdefMessage(NfcEvent event) {
         
         String email = getUserEmail(9);
+        InfoTask task = new InfoTask();
+        task.setListener(this);
+        task.execute(Integer.parseInt(email));
+
         Toast.makeText(mActivity, "userId: ", Toast.LENGTH_SHORT).show();
 
         Log.i(TAG, "user email: " + email);
@@ -108,5 +114,8 @@ public class NfcController implements NfcAdapter.CreateNdefMessageCallback {
         return Tasks.getUserTasks(userId);
     }
 
-
+    @Override
+    public void onTaskComplete(String data) {
+        Toast.makeText(mActivity, "userId: " + data, Toast.LENGTH_SHORT).show();
+    }
 }
