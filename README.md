@@ -11,3 +11,8 @@ Good question, let us introduce ourselves:
 * [Gordon Yoon](https://github.com/gordonyoon)
 * [Jhoon Saravia](https://github.com/jhoon)
 * [Sanyukta Ghai](https://github.com/sanyuktaghai)
+
+### What is Taggle™?
+ 
+Taggle is viral crowdfunding for good causes through social encouragement. It leverages 
+the existing tech using nfc and the main audcience is college students.
