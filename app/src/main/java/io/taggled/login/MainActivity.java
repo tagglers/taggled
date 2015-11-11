@@ -37,6 +37,7 @@ import java.util.Map;
 
 import io.taggled.PayActivity;
 import io.taggled.R;
+import io.taggled.util.PreferenceUtils;
 
 /**
  * This application demos the use of the Firebase Login feature. It currently supports logging in
@@ -356,10 +357,12 @@ public class MainActivity extends AppCompatActivity implements
 //            mLoggedInStatusTextView.setVisibility(View.VISIBLE);
             /* show a provider specific status text */
             String name = null;
+            String email = null;
             if (authData.getProvider().equals("facebook")
                     || authData.getProvider().equals("google")
                     || authData.getProvider().equals("twitter")) {
                 name = (String) authData.getProviderData().get("displayName");
+                email = (String) authData.getProviderData().get("email");
             } else if (authData.getProvider().equals("anonymous")
                     || authData.getProvider().equals("password")) {
                 name = authData.getUid();
@@ -370,7 +373,8 @@ public class MainActivity extends AppCompatActivity implements
                 mLoggedInStatusTextView.setText("Logged in as " + name + " (" + authData.getProvider() + ")");
                 Intent intent = new Intent(this, PayActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.putExtra("user_name", name);
+                PreferenceUtils.setUserEmail(this, email);
+                PreferenceUtils.setUserName(this, name);
                 startActivity(intent);
             }
         } else {

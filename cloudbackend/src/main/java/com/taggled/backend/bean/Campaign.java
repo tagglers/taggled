@@ -1,6 +1,5 @@
 package com.taggled.backend.bean;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -15,8 +14,8 @@ public class Campaign {
     private String imgUrl;
     private Date startDate;
     private Date endDate;
-    private BigDecimal targetAmount;
-    private BigDecimal currentAmount;
+    private Double targetAmount;
+    private Double currentAmount;
     private Organization org;
     private Date createdDate;
     private List<CampaignUpdate> campaignUpdates;
@@ -96,20 +95,20 @@ public class Campaign {
         this.endDate = endDate;
     }
 
-    public BigDecimal getTargetAmount() {
+    public Double getTargetAmount() {
         return targetAmount;
     }
 
-    public void setTargetAmount(BigDecimal targetAmount) {
+    public void setTargetAmount(Double targetAmount) {
         this.targetAmount = targetAmount;
     }
 
 
-    public BigDecimal getCurrentAmount() {
+    public Double getCurrentAmount() {
         return currentAmount;
     }
 
-    public void setCurrentAmount(BigDecimal currentAmount) {
+    public void setCurrentAmount(Double currentAmount) {
         this.currentAmount = currentAmount;
     }
 }

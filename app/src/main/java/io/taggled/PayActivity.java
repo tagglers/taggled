@@ -3,6 +3,7 @@ package io.taggled;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -32,17 +33,18 @@ public class PayActivity extends AppCompatActivity {
 
     Context mContext;
 
-    private Button clickButton;
+  //  private Button clickButton;
     private Button buyButton;
 
 
     @Bind(R.id.toolbar) Toolbar toolbar;
+    @Bind(R.id.fab) FloatingActionButton fab;
 
-    @OnClick(R.id.fab)
-    void onClickFab(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
-    }
+//    @OnClick(R.id.fab)
+//    void onClickFab(View view) {
+//        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show();
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +53,16 @@ public class PayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pay);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+        TextDrawable textDrawable = new TextDrawable("$");
+        fab.setImageDrawable(textDrawable);
+
+
 
         mContext = this;
 
-        buyButton = (Button)findViewById(R.id.buyButton);
-        clickButton = (Button)findViewById(R.id.clickButton);
-        buyButton.setEnabled(false);
+        //buyButton = (Button)findViewById(R.id.buyButton);
+        // clickButton = (Button)findViewById(R.id.clickButton);
+        //buyButton.setEnabled(false);
 
         String base64EncodedPublicKey = getResources().getString(R.string.public_key);
 
@@ -89,7 +95,8 @@ public class PayActivity extends AppCompatActivity {
             else if (purchase.getSku().equals(ITEM_SKU)) {
                 Log.d(TAG, "Purchase SKU match");
                 consumeItem();
-                buyButton.setEnabled(false);
+                //
+                //buyButton.setEnabled(false);
             }
 
         }
@@ -120,9 +127,9 @@ public class PayActivity extends AppCompatActivity {
                                               IabResult result) {
 
                     if (result.isSuccess()) {
-                        clickButton.setEnabled(true);
+                        //clickButton.setEnabled(true);
                         Intent intent = new Intent(mContext, TaggleFriendsActivity.class);
-                        startActivity(intent);
+                        //startActivity(intent);
                     } else {
                         // handle error
                     }
@@ -132,7 +139,7 @@ public class PayActivity extends AppCompatActivity {
     {
         Log.d(TAG, "ButtonClicked");
         //clickButton.setEnabled(false);
-        buyButton.setEnabled(true);
+        //buyButton.setEnabled(true);
     }
     public void buyClick(View view) {
         mHelper.launchPurchaseFlow(this, ITEM_SKU, 10001,
