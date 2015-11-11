@@ -1,5 +1,6 @@
 package io.taggled;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -29,6 +30,8 @@ public class PayActivity extends AppCompatActivity {
 
     IabHelper mHelper;
 
+    Context mContext;
+
     private Button clickButton;
     private Button buyButton;
 
@@ -48,6 +51,8 @@ public class PayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pay);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
+
+        mContext = this;
 
         buyButton = (Button)findViewById(R.id.buyButton);
         clickButton = (Button)findViewById(R.id.clickButton);
@@ -116,6 +121,8 @@ public class PayActivity extends AppCompatActivity {
 
                     if (result.isSuccess()) {
                         clickButton.setEnabled(true);
+                        Intent intent = new Intent(mContext, TaggleFriendsActivity.class);
+                        startActivity(intent);
                     } else {
                         // handle error
                     }
